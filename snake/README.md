@@ -4,5 +4,7 @@
 
 * les versions `v0.py` .. `v8.py` correspondent grosso-modo au déroulement pas à pas du TP
 
+## une autre implémentation
+
 * `snake.py` est une autre implémentation du jeu complet
 
