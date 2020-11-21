@@ -12,23 +12,23 @@ class Student:
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name}"
-    
+
 
     def add_grade(self, topic: str, grade: float):
         self._grades[topic].append(grade)
-        
+
 
     def followed_topics(self):
         #return list(self.grades.keys())
         return self._grades
-    
+
 
     def compute_average(self, topic):
         if topic not in self._grades:
             return -1
         topic_grades = self._grades[topic]
         return sum(topic_grades) / len(topic_grades)
-    
+
 
     report_header = (
         "+===============+===============+\n"
@@ -38,7 +38,7 @@ class Student:
     report_separator = (
         "+---------------+---------------+\n"
     )
-    
+
     def report(self):
         line1 = f"Report for student {self.first_name} {self.last_name}\n"
         result = line1 + self.report_header
@@ -91,3 +91,18 @@ class Class:
                     student = self.get_student(first, last)
                     for grade in grades:
                         student.add_grade(topic, float(grade))
+
+    def catalog(self):
+        result = defaultdict(int)
+        for student in self._students.values():
+            for topic in student.followed_topics():
+                result[topic] += 1
+        return result
+
+    def compute_averages(self):
+        catalog = self.catalog()
+        totals = defaultdict(int)
+        for student in self._students.values():
+            for topic in student.followed_topics():
+                totals[topic] += student.compute_average(topic)
+        return {topic: totals[topic] / catalog[topic] for topic in catalog}
