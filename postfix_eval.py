@@ -105,4 +105,3 @@ def postfix_eval_bis(chaine):
         return 'error-unfinished'
 
     return stack.pop()
-

@@ -21,4 +21,3 @@ def vigenere(clear, key, encode=True):
         cesar(c, k, encode)
         for c, k in zip(clear, cycle(key))
     )
-

@@ -69,4 +69,3 @@ def taxes_bis(income):
         band_top, rate_top = bands[-1]
         amount += (income - band_top) * rate_top
     return int(amount)
-

@@ -75,4 +75,3 @@ def comptage_quater(in_filename, out_filename):
         for line_no, line in enumerate(in_file, 1):
             out_file.write(":".join((str(line_no), str(len(line.split())),
               str(len(line)), line)))
-
